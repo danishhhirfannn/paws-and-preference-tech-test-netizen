@@ -1,9 +1,18 @@
 <script setup>
 import MainPage from '@/components/MainPage.vue';
+import BottomNavigation from '@/components/BottomNavigation.vue';
 </script>
 
 <template>
-  <MainPage />
+  <div class="h-screen bg-gradient-to-b from-[var(--p-primary-50)] to-[var(--p-primary-700)] dark:from-gray-900 dark:to-gray-800 flex flex-col overflow-hidden">
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-hidden">
+      <MainPage />
+    </main>
+    
+    <!-- Bottom Navigation -->
+    <BottomNavigation />
+  </div>
 </template>
 
 <style scoped>

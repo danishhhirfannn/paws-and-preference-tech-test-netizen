@@ -1,0 +1,284 @@
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+
+
+/* Primary and Surface Palettes */
+:root {
+  --p-primary-50: #f5f3ff;
+  --p-primary-100: #ede9fe;
+  --p-primary-200: #ddd6fe;
+  --p-primary-300: #c4b5fd;
+  --p-primary-400: #a78bfa;
+  --p-primary-500: #8b5cf6;
+  --p-primary-600: #7c3aed;
+  --p-primary-700: #6d28d9;
+  --p-primary-800: #5b21b6;
+  --p-primary-900: #4c1d95;
+  --p-primary-950: #2e1065;
+  --p-surface-0: #ffffff;
+  --p-surface-50: #fafafa;
+  --p-surface-100: #f4f4f5;
+  --p-surface-200: #e4e4e7;
+  --p-surface-300: #d4d4d8;
+  --p-surface-400: #a1a1aa;
+  --p-surface-500: #71717a;
+  --p-surface-600: #52525b;
+  --p-surface-700: #3f3f46;
+  --p-surface-800: #27272a;
+  --p-surface-900: #18181b;
+  --p-surface-950: #09090b;
+  --p-content-border-radius: 6px;
+}
+
+/* Light */
+:root {
+  --p-primary-color: var(--p-primary-500);
+  --p-primary-contrast-color: var(--p-surface-0);
+  --p-primary-hover-color: var(--p-primary-600);
+  --p-primary-active-color: var(--p-primary-700);
+  --p-content-border-color: var(--p-surface-200);
+  --p-content-hover-background: var(--p-surface-100);
+  --p-content-hover-color: var(--p-surface-800);
+  --p-highlight-background: var(--p-primary-50);
+  --p-highlight-color: var(--p-primary-700);
+  --p-highlight-focus-background: var(--p-primary-100);
+  --p-highlight-focus-color: var(--p-primary-800);
+  --p-text-color: var(--p-surface-700);
+  --p-text-hover-color: var(--p-surface-800);
+  --p-text-muted-color: var(--p-surface-500);
+  --p-text-hover-muted-color: var(--p-surface-600);
+}
+
+/*
+* Dark Mode
+* Defaults to system, change the dark variant selector to match the CSS variable configuration.
+* For example;
+* @custom-variant dark (&:where(.app-dark, .app-dark *));
+* should match to;
+* :root[class="app-dark"]
+*/
+@media (prefers-color-scheme: dark) {
+  :root {
+      --p-primary-color: var(--p-primary-400);
+      --p-primary-contrast-color: var(--p-surface-900);
+      --p-primary-hover-color: var(--p-primary-300);
+      --p-primary-active-color: var(--p-primary-200);
+      --p-content-border-color: var(--p-surface-700);
+      --p-content-hover-background: var(--p-surface-800);
+      --p-content-hover-color: var(--p-surface-0);
+      --p-highlight-background: color-mix(in srgb, var(--p-primary-400), transparent 84%);
+      --p-highlight-color: rgba(255, 255, 255, 0.87);
+      --p-highlight-focus-background: color-mix(in srgb, var(--p-primary-400), transparent 76%);
+      --p-highlight-focus-color: rgba(255, 255, 255, 0.87);
+      --p-text-color: var(--p-surface-0);
+      --p-text-hover-color: var(--p-surface-0);
+      --p-text-muted-color: var(--p-surface-400);
+      --p-text-hover-muted-color: var(--p-surface-300);
+  }
+}
+
+/* Mobile-First Responsive Design Utilities */
+
+/* Touch-friendly button sizes */
+.btn-touch {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px 16px;
+}
+
+/* Mobile-optimized spacing */
+.mobile-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Mobile-optimized text sizes */
+.mobile-text {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 640px) {
+  .mobile-text {
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+}
+
+/* Mobile-optimized grid layouts */
+.mobile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Mobile navigation optimizations */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .mobile-nav {
+    background: rgba(31, 41, 55, 0.95);
+  }
+}
+
+/* Mobile card optimizations */
+.mobile-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease-in-out;
+}
+
+.mobile-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile form optimizations */
+.mobile-input {
+  font-size: 16px; /* Prevents zoom on iOS */
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.mobile-input:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Mobile image optimizations */
+.mobile-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Mobile loading states */
+.mobile-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.mobile-loading::after {
+  content: '';
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid #8b5cf6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mobile accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile focus indicators */
+.focus-visible:focus {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+/* Mobile safe area support */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-left {
+  padding-left: env(safe-area-inset-left);
+}
+
+.safe-area-right {
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Mobile performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Mobile typography scale */
+.text-mobile-xs { font-size: 0.75rem; line-height: 1rem; }
+.text-mobile-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-mobile-base { font-size: 1rem; line-height: 1.5rem; }
+.text-mobile-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-mobile-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.text-mobile-2xl { font-size: 1.5rem; line-height: 2rem; }
+
+@media (min-width: 640px) {
+  .text-mobile-xs { font-size: 0.75rem; }
+  .text-mobile-sm { font-size: 0.875rem; }
+  .text-mobile-base { font-size: 1rem; }
+  .text-mobile-lg { font-size: 1.125rem; }
+  .text-mobile-xl { font-size: 1.25rem; }
+  .text-mobile-2xl { font-size: 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .text-mobile-xs { font-size: 0.75rem; }
+  .text-mobile-sm { font-size: 0.875rem; }
+  .text-mobile-base { font-size: 1rem; }
+  .text-mobile-lg { font-size: 1.125rem; }
+  .text-mobile-xl { font-size: 1.25rem; }
+  .text-mobile-2xl { font-size: 1.5rem; }
+}
